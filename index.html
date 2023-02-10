@@ -1,5 +1,36 @@
 <html>
     <head>
+	    
+	    <style>
+      .menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        background-color: lightgray;
+      }
+
+      .menu-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        width: 100px;
+        background-color: white;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      .submenu {
+        display: none;
+        position: absolute;
+        background-color: lightgray;
+      }
+
+      .menu-item:hover .submenu {
+        display: block;
+      }
+    </style>
 
         <title>
             galetohj1
@@ -11,12 +42,30 @@
     
     <body style="background-color: orange;">
  <img src="image/frango.png" width="900px" height="300px">
+	    
 	   
   
 
 	    
 	   <br>
 	    <br>
+	    
+	    <div class="menu">
+      <div class="menu-item">
+        Menu 1
+        <div class="submenu">
+          <div class="menu-item">Submenu 1.1</div>
+          <div class="menu-item">Submenu 1.2</div>
+        </div>
+      </div>
+      <div class="menu-item">
+        Menu 2
+        <div class="submenu">
+          <div class="menu-item">Submenu 2.1</div>
+          <div class="menu-item">Submenu 2.2</div>
+        </div>
+      </div>
+    </div>
          
 	    
   <p style="font-family: 'Comic Sans MS', cursive, sans-serif; font-size: 36px;">Sorteio de galeto + coca-cola</p>
