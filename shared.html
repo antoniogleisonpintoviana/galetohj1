@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sorteio de Números</title>
+  <style>
+    body {
+      background-color: #FFA07A;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      margin: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      background-color: #FFF;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #resultado {
+      margin: 20px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+   
+   <img src="image/frango.png" width="900px" height="200px">
+   
+  <input type="text" id="inputMin" placeholder="Número mínimo">
+  <input type="text" id="inputMax" placeholder="Número máximo">
+  <button id="sortear">Sortear</button>
+  <p id="resultado"></p>
+  <button id="compartilhar">Compartilhar</button>
+ 
+  <a href="shared.html"> <button>Limpar</button> </a>
+  <script>
+    const inputMin = document.getElementById("inputMin");
+    const inputMax = document.getElementById("inputMax");
+    const sortearBtn = document.getElementById("sortear");
+    const resultado = document.getElementById("resultado");
+    const compartilharBtn = document.getElementById("compartilhar");
+
+    sortearBtn.addEventListener("click", function() {
+      const min = parseInt(inputMin.value);
+      const max = parseInt(inputMax.value);
+      const sorteado = Math.floor(Math.random() * (max - min + 1)) + min;
+      resultado.innerHTML = `O número sorteado é: ${sorteado}`;
+    });
+
+    compartilharBtn.addEventListener("click", function() {
+      const text = resultado.innerHTML;
+
+      if (navigator.share) {
+        navigator.share({
+          title: "Número sorteado",
+          text: text,
+        })
+          .then(() => console.log("Compartilhado com sucesso"))
+          .catch((error) => console.error("Erro ao compartilhar", error));
+      } else {
+        console.error("Recurso de compartilhamento não disponível");
+      }
+    });
+  </script>
+</body>
+</html>
